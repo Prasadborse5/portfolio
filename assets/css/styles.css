@@ -8,6 +8,8 @@
   --accent-dark: #167a52;
   --border: #e2e8f0;
   --shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+  --card: var(--surface);
+
 }
 
 body.dark {
