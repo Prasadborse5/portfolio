@@ -1,6 +1,8 @@
 const themeToggle = document.getElementById("themeToggle");
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 const storedTheme = localStorage.getItem("theme");
+const header = document.querySelector(".site-header");
+const navLinks = document.querySelectorAll(".nav__link");
 
 const applyTheme = (theme) => {
   if (theme === "dark") {
@@ -138,3 +140,31 @@ copyButton?.addEventListener("click", async () => {
     updateStatus("Email copied to clipboard.");
   }
 });
+
+const sections = [...document.querySelectorAll("main section[id]")];
+
+const setActiveLink = () => {
+  const scrollPosition = window.scrollY + 120;
+  const currentSection = sections.findLast(
+    (section) => scrollPosition >= section.offsetTop
+  );
+
+  navLinks.forEach((link) => link.classList.remove("is-active"));
+
+  if (currentSection) {
+    const activeLink = document.querySelector(
+      `.nav__link[href="#${currentSection.id}"]`
+    );
+    activeLink?.classList.add("is-active");
+  }
+};
+
+const handleScroll = () => {
+  if (header) {
+    header.classList.toggle("is-scrolled", window.scrollY > 10);
+  }
+  setActiveLink();
+};
+
+setActiveLink();
+window.addEventListener("scroll", handleScroll, { passive: true });

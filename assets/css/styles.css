@@ -58,6 +58,12 @@ img {
   backdrop-filter: blur(12px);
   background: color-mix(in srgb, var(--bg) 85%, transparent);
   border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(18px);
 }
 
 .nav {
@@ -97,6 +103,15 @@ img {
 }
 
 .nav__links a:hover::after {
+  width: 100%;
+}
+
+.nav__link.is-active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav__link.is-active::after {
   width: 100%;
 }
 
