@@ -335,6 +335,15 @@ img {
   margin-top: 0.3rem;
 }
 
+.timeline__bullets{
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+.timeline__bullets li{
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
 .timeline__meta {
   color: var(--muted);
   font-size: 0.9rem;
