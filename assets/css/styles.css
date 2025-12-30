@@ -1,0 +1,4 @@
+:root { color-scheme: light dark; }
+body { margin: 0; font-family: system-ui, Arial, sans-serif; }
+.wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+button { padding: 10px 14px; border-radius: 10px; border: 1px solid; cursor: pointer; }
