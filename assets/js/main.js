@@ -168,3 +168,13 @@ const handleScroll = () => {
 
 setActiveLink();
 window.addEventListener("scroll", handleScroll, { passive: true });
+
+
+// Experience flashcards (accordion)
+document.querySelectorAll("[data-exp]").forEach((card) => {
+  const btn = card.querySelector("[data-exp-toggle]");
+  btn.addEventListener("click", () => {
+    const isOpen = card.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+});
