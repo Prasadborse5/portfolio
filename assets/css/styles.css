@@ -275,16 +275,18 @@ img {
 .chip {
   padding: 0.6rem 1rem;
   border-radius: 999px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
   color: var(--text);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease;
-  animation: float 5s ease-in-out infinite;
+  box-shadow: 0 8px 18px rgba(31, 157, 106, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  animation: float 5s ease-in-out infinite, glow 6s ease-in-out infinite;
 }
 
 .chip:hover {
-  transform: translateY(-4px) scale(1.03);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 22px rgba(31, 157, 106, 0.2);
+  background: color-mix(in srgb, var(--accent) 20%, var(--surface));
 }
 
 .timeline {
@@ -382,12 +384,14 @@ img {
   display: grid;
   place-items: center;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .modal.is-open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -404,6 +408,8 @@ img {
   border-radius: 20px;
   padding: 2rem;
   width: min(520px, 92vw);
+  max-height: 85vh;
+  overflow: auto;
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
   transform: translateY(20px) scale(0.98);
@@ -454,6 +460,16 @@ img {
   }
   50% {
     transform: translateY(-6px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 8px 18px rgba(31, 157, 106, 0.12);
+  }
+  50% {
+    box-shadow: 0 12px 24px rgba(31, 157, 106, 0.18);
   }
 }
 
